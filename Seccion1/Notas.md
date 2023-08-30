@@ -1,3 +1,4 @@
+## Seccion 1: Introduccion e instalaciones
 Herramientas necesarias para el curso:
 
 - JDK 17. Recordar modificar las variables de ambiente SO y ruta al JDK en el path
