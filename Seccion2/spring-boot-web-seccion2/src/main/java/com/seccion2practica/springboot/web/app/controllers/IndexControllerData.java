@@ -28,14 +28,14 @@ public class IndexControllerData {
 	}
 	
 	@GetMapping(value={"/homeDataMap"}) 
-	public String indexB(Map<String, Object> map) { //Podemos usar de la misma forma Model Map
+	public String indexB(Map<String, Object> map) { //Podemos usar de la misma forma  Map
 		map.put("titulo", "Hola Spring Framework");
 		map.put("texto", "Map: " + Math.random()*1000);
 		return "indexData";
 	}
 	
 	@GetMapping(value={"/homeDataMV"}) 
-	public ModelAndView indexB(ModelAndView mv) { //Podemos usar de la misma forma Model Map
+	public ModelAndView indexB(ModelAndView mv) { //Podemos usar de la misma forma ModelAndView
 		mv.addObject("titulo", "Hola Spring Framework");
 		mv.addObject("texto", "MV: " + Math.random()*1000);
 		mv.setViewName("indexData");
