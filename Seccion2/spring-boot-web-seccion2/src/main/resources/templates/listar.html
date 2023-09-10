@@ -9,11 +9,8 @@
 <body>
 	<!-- Una vez creada el metodo perfil marcamos los elementos donde ubicaremos los datos -->
 	<h1 th:text="${titulo}"></h1>
-	<p th:text="${texto}"></p>
-	<span th:text="${usuario.toString}"></span>
-	<br>
-	<span th:if="${usuario.email}" th:text="${usuario.email}"></span>
-	<span th:if="${usuario.email == null}">No hay correo para este usuario</span>
+	<p th:text="dato"></p>
+	<div th:if="${usuarios.size() == 0}">¡¡No hay usuarios Registrados!!</div>
 </body>
 
 </html>

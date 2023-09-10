@@ -6,6 +6,7 @@ public class Usuario {
 	private String apellido1;
 	private String apellido2;
 	private String dni;
+	private String email;
 	
 	//Get&Set
 	public String getNombre() {
@@ -33,6 +34,12 @@ public class Usuario {
 		this.dni = dni;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String toString() {
 		return this.nombre +" "+ this.apellido1 +" " + this.apellido2 +". DNI " + this.dni;
 	}

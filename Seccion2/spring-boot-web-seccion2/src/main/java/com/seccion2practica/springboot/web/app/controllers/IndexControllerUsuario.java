@@ -1,6 +1,9 @@
 package com.seccion2practica.springboot.web.app.controllers;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +26,7 @@ public class IndexControllerUsuario {
 		model.addAttribute("dato", NAME_CLASS);
 		model.addAttribute("titulo", "Hola Spring Framework");
 		model.addAttribute("texto", "Model: " + (Math.random()*1000));
-		return "/indexData";
+		return "indexData";
 	}
 	// Con /app/perfil ejecutamos este metodo
 	@RequestMapping("/perfil")
@@ -37,14 +40,26 @@ public class IndexControllerUsuario {
 		usuario.setApellido1("Matas");
 		usuario.setApellido2("Asensio");
 		usuario.setDni("000000000-X");
+		//usuario.setEmail("correo@correo.es");
 		
 		//Añadimos datos al modelo y etiquetado de thymeleaf
-		model.addAttribute("dato", NAME_CLASS);
 		model.addAttribute("titulo", "Framework Spring");
-		model.addAttribute("usuario", usuario);
 		model.addAttribute("texto", "Perfil Usuario: ".concat(usuario.getNombre()));
-		return "/perfil";
+		model.addAttribute("dato", NAME_CLASS);
+		model.addAttribute("usuario", usuario);
+		
+		return "perfil";
 	}
 	
-	
+	@RequestMapping("/listar")
+	public String listar(Model model) {
+		List<Usuario> usuarios = new ArrayList();
+		
+		model.addAttribute("dato", NAME_CLASS);
+		model.addAttribute("titulo", "Framework Spring");
+		
+		model.addAttribute("usuarios", usuarios);
+		
+		return "listar";
+	}
 }
