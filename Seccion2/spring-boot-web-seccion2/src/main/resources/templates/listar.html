@@ -10,7 +10,29 @@
 	<!-- Una vez creada el metodo perfil marcamos los elementos donde ubicaremos los datos -->
 	<h1 th:text="${titulo}"></h1>
 	<p th:text="dato"></p>
-	<div th:if="${usuarios.size() == 0}">¡¡No hay usuarios Registrados!!</div>
+	<div th:if="${usuarios.isEmpty()}">¡¡No hay usuarios Registrados!!</div>
+	<div>
+		<table th:if="${!usuarios.isEmpty()}">
+			<thead>
+				<tr>
+					<td>Nombre</td>
+					<td>Apellido 1</td>
+					<td>Apellido 2</td>
+					<td>DNI</td>
+					<td>E-mail</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario: ${usuarios}">
+					<td th:text="${usuario.nombre}"></td>
+					<td th:text="${usuario.apellido1}"></td>
+					<td th:text="${usuario.apellido2}"></td>
+					<td th:text="${usuario.dni}"></td>
+					<td th:text="${usuario.email}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 
 </html>
