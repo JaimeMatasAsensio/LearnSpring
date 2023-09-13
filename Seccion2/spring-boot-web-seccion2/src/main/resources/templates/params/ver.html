@@ -3,14 +3,20 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<!-- Para indicar parametros en thymeleaf con $ -->
 	<title th:text="${titulo}"></title>
 </head>
 
 <body>
 	<h1 th:text="${titulo}"></h1>
-	<p th:text="${texto}"></p>
-	<p th:text="${dato}"></p>
+	<div th:text="${resultado}"></div>	
+
+	<ul>
+		<li>
+			<!-- Para indicar URL en thymeleaf se indican con @ -->
+			<a href="/params/index">
+				VOLVER</a>
+		</li>
+	</ul>
 </body>
 
 </html>

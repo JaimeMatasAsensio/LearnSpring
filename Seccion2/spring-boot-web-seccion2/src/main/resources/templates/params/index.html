@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${titulo}"></title>
+</head>
+
+<body>
+	<h1 th:text="${titulo}"></h1>
+	<ul>
+		<li>
+			<!-- Para indicar URL en thymeleaf se indican con @ -->
+			<a th:href="@{/params/string(texto='Envio Paramentro desde URL')}">
+				/params/string?texto=Envio Paramentro desde URL</a>
+		</li>
+		<li>
+			<a th:href="@{/params/string(texto='¿Que tal estas?')}">
+				/params/string?texto=¿Que tal estas?</a>
+		</li>
+	</ul>
+	
+</body>
+
+</html>

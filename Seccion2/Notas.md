@@ -7,4 +7,4 @@ En esta seccion se revisan:
 - Pasar datos a la vista. Distintos modos
 - Mapeado de controladores 
 
-Lecciones a practicar :point_right: S2-20
+Lecciones a practicar :point_right: S2-23

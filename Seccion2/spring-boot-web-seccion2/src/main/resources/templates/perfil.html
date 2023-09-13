@@ -14,6 +14,28 @@
 	<br>
 	<span th:if="${usuario.email}" th:text="${usuario.email}"></span>
 	<span th:if="${usuario.email == null}">No hay correo para este usuario</span>
+	<table th:if="${!usuarios.isEmpty()}">
+		<thead>
+			<tr>
+				<td>Nombre</td>
+				<td>Apellido 1</td>
+				<td>Apellido 2</td>
+				<td>DNI</td>
+				<td>E-mail</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="usuario: ${usuarios}">
+				<td th:text="${usuario.nombre}"></td>
+				<td th:text="${usuario.apellido1}"></td>
+				<td th:text="${usuario.apellido2}"></td>
+				<td th:text="${usuario.dni}"></td>
+				<td th:text="${usuario.email}"></td>
+			</tr>
+		</tbody>
+	</table>
+	
+
 </body>
 
 </html>

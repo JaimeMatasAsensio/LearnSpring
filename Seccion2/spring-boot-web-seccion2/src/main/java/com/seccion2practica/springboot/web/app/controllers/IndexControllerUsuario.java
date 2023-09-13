@@ -1,12 +1,12 @@
 package com.seccion2practica.springboot.web.app.controllers;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.seccion2practica.springboot.web.app.models.Usuario;
@@ -66,5 +66,15 @@ public class IndexControllerUsuario {
 		model.addAttribute("usuarios", usuarios);
 		
 		return "listar";
+	}
+	
+	@ModelAttribute("usuarios")
+	public List<Usuario> poblarUsuarios(){
+		List<Usuario> usuarios =  Arrays.asList(
+				new Usuario ("Jaime","Matas","Asensio","000000000-X","Jaime@correo.com"),
+				new Usuario ("Veronica","Code","Bug","000000000-Y","Veronica@correo.com"),
+				new Usuario ("Anonymous","Empty","Empty","000000000-Z","Anonymous@correo.com")
+				);
+		return usuarios;
 	}
 }
