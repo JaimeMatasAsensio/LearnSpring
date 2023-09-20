@@ -13,7 +13,7 @@ public class VariablesRutasController {
 	@GetMapping("/")
 	public String index (Model model) {
 		model.addAttribute("titulo", "Enviar paramentros por  @PathVariable");
-		return "variables/index";
+		return "variables/indexVar";
 	}
 	
 	@GetMapping("/string/{texto}")

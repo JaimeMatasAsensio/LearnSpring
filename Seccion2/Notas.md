@@ -8,4 +8,4 @@ En esta seccion se revisan:
 - Mapeado de controladores 
 - Envio de parametros por URL path
 
-Lecciones a practicar :point_right: S2-23
+Lecciones a practicar :point_right: S2-27

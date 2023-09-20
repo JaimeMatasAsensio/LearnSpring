@@ -25,7 +25,7 @@ public class IndexController {
 	//@RequestMapping(value={"/index","/home"})
 	
 	// Existen distintos tipos de Request GET,POST,DELETE,PUT
-	@GetMapping(value={"/index","/home"}) // Podemos mapear la vista con distintas rutas
+	@GetMapping(value={"/index","/home","/"}) // Podemos mapear la vista con distintas rutas
 	public String index() {
 		
 		return "index";
