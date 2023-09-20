@@ -6,5 +6,6 @@ En esta seccion se revisan:
 - Creacion de Controlador y Vista.
 - Pasar datos a la vista. Distintos modos
 - Mapeado de controladores 
+- Envio de parametros por URL path
 
 Lecciones a practicar :point_right: S2-23
