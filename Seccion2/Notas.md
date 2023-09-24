@@ -7,5 +7,7 @@ En esta seccion se revisan:
 - Pasar datos a la vista. Distintos modos
 - Mapeado de controladores 
 - Envio de parametros por URL path
+- creacion de ficheros properties para textos y otras configuraciones
+- Uso de forward y redirect
 
-Lecciones a practicar :point_right: S2-27
+Fin seccion 2 :godmode: :+1:
