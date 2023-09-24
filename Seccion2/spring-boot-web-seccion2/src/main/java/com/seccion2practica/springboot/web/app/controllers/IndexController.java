@@ -1,5 +1,6 @@
 package com.seccion2practica.springboot.web.app.controllers;
 
+import org.springframework.beans.factory.annotation.Value;
 // Imports por las notaciones de Spring
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class IndexController {
 	//@RequestMapping(value={"/index","/home"})
 	
 	// Existen distintos tipos de Request GET,POST,DELETE,PUT
-	@GetMapping(value={"/index","/home","/"}) // Podemos mapear la vista con distintas rutas
+	@GetMapping(value={"/index"}) // Podemos mapear la vista con distintas rutas
 	public String index() {
 		
 		return "index";

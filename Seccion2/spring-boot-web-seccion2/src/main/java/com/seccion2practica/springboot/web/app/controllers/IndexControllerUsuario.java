@@ -4,6 +4,7 @@ package com.seccion2practica.springboot.web.app.controllers;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +19,15 @@ import org.springframework.ui.Model;
 @RequestMapping("/app")
 public class IndexControllerUsuario {
 	
+	@Value("${texto.indexcontrollerusuario.index.titulo}")
+	private String textoIndex;
+	
+	@Value("${texto.indexcontrollerusuario.index.texto}")
+	private String textoListar;
+	
+	@Value("${texto.indexcontrollerusuario.index.dato}")
+	private String textoPerfil;
+	
 	public static String NAME_CLASS = "IndexControllerUsuario";
 	
 	// Con /app/indexData ejecutamos este metodo
@@ -25,7 +35,7 @@ public class IndexControllerUsuario {
 	public String index(Model model) { // Para introducir datos en la vista podemos pasar la interfaz model de spring
 		
 		model.addAttribute("dato", NAME_CLASS);
-		model.addAttribute("titulo", "Hola Spring Framework");
+		model.addAttribute("titulo", textoIndex);
 		model.addAttribute("texto", "Model: " + (Math.random()*1000));
 		return "indexData";
 	}
@@ -44,7 +54,7 @@ public class IndexControllerUsuario {
 		//usuario.setEmail("correo@correo.es");
 		
 		//Añadimos datos al modelo y etiquetado de thymeleaf
-		model.addAttribute("titulo", "Framework Spring");
+		model.addAttribute("titulo", textoIndex);
 		model.addAttribute("texto", "Perfil Usuario: ".concat(usuario.getNombre()));
 		model.addAttribute("dato", NAME_CLASS);
 		model.addAttribute("usuario", usuario);
@@ -60,8 +70,8 @@ public class IndexControllerUsuario {
 				new Usuario ("Anonymous","Empty","Empty","000000000-Z","Anonymous@correo.com")
 				);
 		
-		model.addAttribute("dato", NAME_CLASS);
-		model.addAttribute("titulo", "Framework Spring");
+		model.addAttribute("dato", textoPerfil);
+		model.addAttribute("titulo", textoIndex);
 		
 		model.addAttribute("usuarios", usuarios);
 		
