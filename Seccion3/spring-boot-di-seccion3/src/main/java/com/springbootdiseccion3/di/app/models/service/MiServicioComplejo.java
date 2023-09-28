@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 
-@Component("miServicioComplejo")
+//@Component("miServicioComplejo")
 public class MiServicioComplejo implements IServicio {
 	
 	@Override

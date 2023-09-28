@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 
-@Component("miServicioPrincipal")
+//@Component("miServicioPrincipal")
 @Primary //Cuando dos clases implementan una misma interfaz se puede indicar cual de las dos es la primaria
 public class MiServicio implements IServicio {
 	
