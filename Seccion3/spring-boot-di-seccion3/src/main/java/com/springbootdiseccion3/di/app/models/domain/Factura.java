@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Factura {
 
-	@Value("${factura.decripcion}")
+	@Value("${factura.descripcion}")
 	private String descripcion;
 
 	private String numero;
@@ -36,11 +36,11 @@ public class Factura {
 		this.numero = numero;
 	}
 
-	public Cliente getCleinte() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setCleinte(Cliente cleinte) {
+	public void setCliente(Cliente cleinte) {
 		this.cliente = cleinte;
 	}
 

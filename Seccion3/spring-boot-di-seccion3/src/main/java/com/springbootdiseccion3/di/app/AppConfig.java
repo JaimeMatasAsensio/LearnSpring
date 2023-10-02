@@ -20,12 +20,12 @@ public class AppConfig {
 	//Mediante esta configuracion podemos Crear e inyectar las dependencias.
 	
 	@Bean("miServicioSimple")
+	@Primary
 	public IServicio registrarServicio() {
 		return new MiServicio();
 	}
 	
 	@Bean("miServicioComplejo")
-	@Primary
 	public IServicio registrarServicioComplejo() {
 		return new MiServicioComplejo();
 	}
@@ -36,7 +36,7 @@ public class AppConfig {
 		Producto producto1 = new Producto("Camiseta",50.01);
 		Producto producto2 = new Producto("Pantalon",49.99);
 		
-		ItemFactura linea1 = new ItemFactura(producto1, 1);
+		ItemFactura linea1 = new ItemFactura(producto1, 2);
 		ItemFactura linea2 = new ItemFactura(producto2, 2);
 		
 		

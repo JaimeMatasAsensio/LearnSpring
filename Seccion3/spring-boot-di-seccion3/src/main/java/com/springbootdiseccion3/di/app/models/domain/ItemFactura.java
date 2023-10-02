@@ -5,17 +5,12 @@ public class ItemFactura {
 	private Producto producto;
 	
 	private Integer cantidad;
-
 	
-	
-	public ItemFactura(Producto producto, Integer cantidad) {
-		
+	public ItemFactura(Producto producto, Integer cantidad) {	
 		this.producto = producto;
 		this.cantidad = cantidad;
 	}
 	
-	public ItemFactura() {}
-
 	public Producto getProducto() {
 		return producto;
 	}
@@ -30,6 +25,10 @@ public class ItemFactura {
 
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
+	}
+	
+	public Double calcularImporte() {
+		return cantidad * producto.getPrecio();
 	}
 
 }
