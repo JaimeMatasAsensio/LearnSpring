@@ -9,6 +9,8 @@ En esta seccion se revisan:
 - Validacion de atributos con @Email y @Size
 - Personalizacion de mensajes de error con ficheros properties
 - Validacion de parametros mediante expresiones regulares
+- Validacion de campos mediante Clases personalizadas ValidationUtils y Validaton de Spring
+- Validacion de campos de forma implicita con ValidationUtils e InitBinder
 - ...
 
 Proximas Lecciones a practicar :point_rigth: 65
