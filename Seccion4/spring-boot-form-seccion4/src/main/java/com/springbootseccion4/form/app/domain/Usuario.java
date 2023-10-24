@@ -1,31 +1,78 @@
 package com.springbootseccion4.form.app.domain;
 
+
+
+import java.util.Date;
+
+//import org.springframework.format.annotation.DateTimeFormat;
+
+import com.springbootseccion4.form.app.validation.IdentificadorRegex;
+import com.springbootseccion4.form.app.validation.Requerido;
+
 import jakarta.validation.constraints.Email;
+//import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 //import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
 	//@Pattern(regexp="[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+	@IdentificadorRegex
 	private String identificador;
 	
 	//@NotEmpty
 	private String nombre;
 	
-	@NotEmpty
+	//@NotEmpty
+	@Requerido
 	private String apellido;
 	
 	@NotBlank
 	@Size(min = 3, max = 10)
 	private String username;
 	
-	@NotEmpty
+	@Requerido
 	private String password;
 	
-	@NotEmpty
+	@NotEmpty //Validacion de Strings
 	@Email
 	private String email;
+	
+	@NotNull //Validacion de objetos
+	@Min(5)
+	@Max(500)
+	private int cuenta;
+	
+	@NotNull
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")//Para dar formato a fechas
+	@Past //Valida solo fechas en pasado
+	//@Future //Valida solo fecha en futuro
+	private Date fechaNacimiento;
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public void setCuenta(int cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	public Integer getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
+	}
 
 	public String getIdentificador() {
 		return identificador;

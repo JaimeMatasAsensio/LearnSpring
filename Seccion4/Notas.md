@@ -11,6 +11,8 @@ En esta seccion se revisan:
 - Validacion de parametros mediante expresiones regulares
 - Validacion de campos mediante Clases personalizadas ValidationUtils y Validaton de Spring
 - Validacion de campos de forma implicita con ValidationUtils e InitBinder
+- Validacion de campos mediante anotaciones personalizadas
+- Validacion de fechas mediante anotaciones, InitBinder, etc
 - ...
 
-Proximas Lecciones a practicar :point_rigth: 65
+Proximas Lecciones a practicar :point_rigth: 74
