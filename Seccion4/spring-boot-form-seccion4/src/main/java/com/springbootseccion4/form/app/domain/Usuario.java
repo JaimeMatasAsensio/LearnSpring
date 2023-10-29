@@ -10,6 +10,7 @@ import com.springbootseccion4.form.app.validation.IdentificadorRegex;
 import com.springbootseccion4.form.app.validation.Requerido;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Future;
 //import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -53,6 +54,30 @@ public class Usuario {
 	@Past //Valida solo fechas en pasado
 	//@Future //Valida solo fecha en futuro
 	private Date fechaNacimiento;
+	
+	@NotNull
+	@Future //Valida solo fecha en futuro
+	private Date fechaFinMembreseria;
+	
+	
+	public Date getFechaFinMembreseria() {
+		return fechaFinMembreseria;
+	}
+
+	public void setFechaFinMembreseria(Date fechaFinMembreseria) {
+		this.fechaFinMembreseria = fechaFinMembreseria;
+	}
+
+	@NotEmpty
+	private String pais;
+	
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
 
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
