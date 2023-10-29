@@ -15,4 +15,4 @@ En esta seccion se revisan:
 - Validacion de fechas mediante anotaciones, InitBinder, etc
 - ...
 
-Proximas Lecciones a practicar :point_rigth: 74
+Proximas Lecciones a practicar :point_rigth: 77

@@ -5,7 +5,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.springbootseccion4.form.app.domain.Usuario;
+import com.springbootseccion4.form.app.models.domain.Usuario;
 
 @Component
 public class UsuarioValidator implements Validator {

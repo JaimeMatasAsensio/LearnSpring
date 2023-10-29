@@ -1,4 +1,4 @@
-package com.springbootseccion4.form.app.domain;
+package com.springbootseccion4.form.app.models.domain;
 
 
 
@@ -55,27 +55,13 @@ public class Usuario {
 	//@Future //Valida solo fecha en futuro
 	private Date fechaNacimiento;
 	
-	@NotNull
-	@Future //Valida solo fecha en futuro
-	private Date fechaFinMembreseria;
+	private Pais pais;
 	
-	
-	public Date getFechaFinMembreseria() {
-		return fechaFinMembreseria;
-	}
-
-	public void setFechaFinMembreseria(Date fechaFinMembreseria) {
-		this.fechaFinMembreseria = fechaFinMembreseria;
-	}
-
-	@NotEmpty
-	private String pais;
-	
-	public String getPais() {
+	public Pais getPais() {
 		return pais;
 	}
 
-	public void setPais(String pais) {
+	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
 
