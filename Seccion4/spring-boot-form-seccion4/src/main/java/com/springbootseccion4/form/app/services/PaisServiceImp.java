@@ -20,7 +20,8 @@ public class PaisServiceImp implements IPaisService {
 				new Pais(3,"GE","Grecia"),
 				new Pais(4,"MA","Malta"),
 				new Pais(5,"TU","Tunez"),
-				new Pais(6,"AR","Argelia"));
+				new Pais(6,"AR","Argelia"),
+				new Pais(7,"AL","Alemania"));
 
 	}
 

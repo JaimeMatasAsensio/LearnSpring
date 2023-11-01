@@ -64,7 +64,12 @@ public class Usuario {
 	private List<Role> roles;
 
 	private Boolean habilitar;
-
+	
+	@NotEmpty
+	private String sexo;
+	
+	
+	private String valorOculto;
 	
 	
 	//Getters&Setters//
@@ -160,4 +165,22 @@ public class Usuario {
 		this.email = email;
 	}
 
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getValorOculto() {
+		return valorOculto;
+	}
+
+	public void setValorOculto(String valorOculto) {
+		this.valorOculto = valorOculto;
+	}
+	
+	
+	
 }

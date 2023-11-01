@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -67,6 +68,11 @@ public class FormController {
 		binder.registerCustomEditor(Role.class,"roles", rolesEditor);
 	}
 	
+	//SEXO
+	@ModelAttribute("sexo")
+	public List<String> sexo(){
+		return Arrays.asList("Hombre","Mujer","Sí");
+	}
 	
 	//ROLES
 	@ModelAttribute("listaRoles")
@@ -128,6 +134,10 @@ public class FormController {
 		usuario.setApellido("Matas");
 		usuario.setHabilitar(true);
 		usuario.setIdentificador("123.456.789-X");
+		usuario.setValorOculto("(_)_)=======B");
+		usuario.setPais(new Pais(7,"AL","Alemania"));
+		usuario.setRoles(Arrays.asList(new Role(2, "Usuario", "ROLE_USUARIO")));
+		
 		model.addAttribute("titulo", "Formulario de usuarios");
 		model.addAttribute("usuario", usuario);
 		return "form";
@@ -136,19 +146,24 @@ public class FormController {
 	/* Cada vez que la peticion sea del tipo POST invocara este metodo
 	 * */
 	@PostMapping("/form")
-	public String procesar(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status) {
+	public String procesar(@Valid Usuario usuario, BindingResult result, Model model) {
 		
-		validador.validate(usuario, result);
+		//validador.validate(usuario, result);
+				
+		if(result.hasErrors()) {
+			model.addAttribute("titulo", "Resultado del formulario");
+			return "form";
+		}
+				
+		return "redirect:/ver";
+	}
+	
+	@GetMapping("/ver")
+	public String ver(@SessionAttribute(name="usuario",required=false)Usuario usuario, Model model, SessionStatus status) {
 		
+		if(usuario == null) return "redirect:/form";
 		model.addAttribute("titulo", "Resultado del formulario");
 		
-		if(result.hasErrors()) {
-			
-			return "form";
-		
-		}
-		
-		model.addAttribute("usuario", usuario);
 		status.setComplete();
 		return "resultado";
 	}
