@@ -13,6 +13,10 @@ En esta seccion se revisan:
 - Validacion de campos de forma implicita con ValidationUtils e InitBinder
 - Validacion de campos mediante anotaciones personalizadas
 - Validacion de fechas mediante anotaciones, InitBinder, etc
+- Implementacion de Objetos Listados y roles
+- Validacion de Listas dentro de clases
+- Implementacion de Services e inyeccion
+- Validacion de Checkboxes
 - ...
 
-Proximas Lecciones a practicar :point_rigth: 77
+Proximas Lecciones a practicar :point_rigth: 86

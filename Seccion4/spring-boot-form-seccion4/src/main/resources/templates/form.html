@@ -9,18 +9,35 @@
 
 <body>
     <h2 th:text="${titulo}"></h2>
-
+    
     <form th:action="@{/form}" th:object="${usuario}" method="post">
+        
         <div>
-            <label for="pais.id">Pais</label>
+            <label for="habilitar">Activar Usuario</label>
             <div>
-                <select id="pais.id" th:field="*{pais.id}">
+                <input type="checkbox" id="habilitar" th:field="*{habilitar}">
+            </div>
+        </div>       
+        <div>
+            <label for="pais">Pais</label>
+            <div>
+                <select id="pais" th:field="*{pais}">
                     <option value="">-- Seleccione Pais --</option>
                     <option th:each="pais: ${listaPaises}" th:text="${pais.nombre}" th:value="${pais.id}"></option>
                 </select>
             </div>
-            <div th:if="${#fields.hasErrors('pais.id')}" th:errors="*{pais.id}"></div>
+            <div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></div>
         </div>
+
+        <div>
+            <label>Roles</label>
+            <div th:each="role: ${listaRoles}">
+                <input type="checkbox" th:field="*{roles}" th:value="${role.id}">
+                <label th:text="${role.nombre}" th:for="${#ids.prev('roles')}"></label>
+            </div>
+            <div th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
+        </div>
+
         <div>
             <label for="identificador">Identificador</label>
             <div>
@@ -77,7 +94,7 @@
                 <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" placeholder="yyyy/MM/dd">
             </div>
             <div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
-        </div>
+        </div>       
         <div>
             <div>
                 <input type="submit" value="Enviar">

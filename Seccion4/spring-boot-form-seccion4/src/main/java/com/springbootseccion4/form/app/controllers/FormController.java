@@ -1,6 +1,7 @@
 package com.springbootseccion4.form.app.controllers;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,8 +22,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.springbootseccion4.form.app.editors.NombreMayusculaEditor;
+import com.springbootseccion4.form.app.editors.PaisPropertyEditor;
+import com.springbootseccion4.form.app.editors.RolesEditor;
 import com.springbootseccion4.form.app.models.domain.Pais;
+import com.springbootseccion4.form.app.models.domain.Role;
 import com.springbootseccion4.form.app.models.domain.Usuario;
+import com.springbootseccion4.form.app.services.IPaisService;
+import com.springbootseccion4.form.app.services.IRoleService;
 import com.springbootseccion4.form.app.validation.UsuarioValidator;
 
 import jakarta.validation.Valid;
@@ -34,6 +40,19 @@ public class FormController {
 	@Autowired
 	private UsuarioValidator validador;
 	
+	@Autowired
+	private IPaisService paisService;
+	
+	@Autowired
+	private IRoleService rolService;
+	
+	@Autowired
+	private PaisPropertyEditor paisEditor;
+	
+	@Autowired
+	private RolesEditor rolesEditor;
+	
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.addValidators(validador);
@@ -42,12 +61,44 @@ public class FormController {
 		binder.registerCustomEditor(Date.class,"fechaNacimiento", new CustomDateEditor(dateFormat, false));
 		
 		binder.registerCustomEditor(String.class,"nombre", new NombreMayusculaEditor());
+		
+		binder.registerCustomEditor(Pais.class,"pais", paisEditor);
+		
+		binder.registerCustomEditor(Role.class,"roles", rolesEditor);
 	}
 	
+	
+	//ROLES
+	@ModelAttribute("listaRoles")
+	public List<Role> roles(){
+		return this.rolService.listar();
+	}
+	
+	@ModelAttribute("listaRolesString")
+	public List<String> listadoRolesString(){
+		List<String> roles = new ArrayList<>();
+		roles.add("ROLE_ADMINISTRADOR");
+		roles.add("ROLE_USUARIO");
+		roles.add("ROLE_MODERADOR");
+		
+		return roles;
+	}
+	
+	@ModelAttribute("listaRolesMap")
+	public Map<String,String>  listaRolesMap(){
+		Map<String,String> roles = new HashMap<String,String>();
+		roles.put("ROLE_ADMINISTRADOR", "Administrador");
+		roles.put("ROLE_USUARIO", "Usuario");
+		roles.put("ROLE_MODERADOR", "Moderador");
+		
+		return roles;
+	}
+	
+	//PAISES
 	@ModelAttribute("paises")
 	public List<String>  paises(){
 		return Arrays.asList("España","Italia","Grecia","Malta","Tunez","Argelia");
-	}
+	}	
 	
 	@ModelAttribute("paisesMap")
 	public Map<String,String>  paisesMap(){
@@ -63,15 +114,11 @@ public class FormController {
 	
 	@ModelAttribute("listaPaises")
 	public List<Pais>  listaPaises(){
-		return Arrays.asList(
-				new Pais(1,"ES","España"),
-				new Pais(2,"IT","Italia"),
-				new Pais(3,"GE","Grecia"),
-				new Pais(4,"MA","Malta"),
-				new Pais(5,"TU","Tunez"),
-				new Pais(6,"AR","Argelia"));
+		return paisService.Listar();
 	}
 	
+	
+	//MAPEADO DE PETICIONES
 	/* Cada vez que la peticion sea del tipo GET invocara este metodo
 	 * */
 	@GetMapping("/form")
@@ -79,6 +126,7 @@ public class FormController {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Jaime");
 		usuario.setApellido("Matas");
+		usuario.setHabilitar(true);
 		usuario.setIdentificador("123.456.789-X");
 		model.addAttribute("titulo", "Formulario de usuarios");
 		model.addAttribute("usuario", usuario);

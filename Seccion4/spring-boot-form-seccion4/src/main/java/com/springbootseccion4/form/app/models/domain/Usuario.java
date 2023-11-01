@@ -1,8 +1,7 @@
 package com.springbootseccion4.form.app.models.domain;
 
-
-
 import java.util.Date;
+import java.util.List;
 
 //import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,41 +21,69 @@ import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
-	//@Pattern(regexp="[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+	
+	//Parametros//
+	
+	// @Pattern(regexp="[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
 	@IdentificadorRegex
 	private String identificador;
-	
-	//@NotEmpty
+
+	// @NotEmpty
 	private String nombre;
-	
-	//@NotEmpty
+
+	// @NotEmpty
 	@Requerido
 	private String apellido;
-	
+
 	@NotBlank
 	@Size(min = 3, max = 10)
 	private String username;
-	
+
 	@Requerido
 	private String password;
-	
-	@NotEmpty //Validacion de Strings
+
+	@NotEmpty // Validacion de Strings
 	@Email
 	private String email;
-	
-	@NotNull //Validacion de objetos
+
+	@NotNull // Validacion de objetos
 	@Min(5)
 	@Max(500)
 	private int cuenta;
-	
+
 	@NotNull
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")//Para dar formato a fechas
-	@Past //Valida solo fechas en pasado
-	//@Future //Valida solo fecha en futuro
+	// @DateTimeFormat(pattern = "yyyy-MM-dd")//Para dar formato a fechas
+	@Past // Valida solo fechas en pasado
+	// @Future //Valida solo fecha en futuro
 	private Date fechaNacimiento;
-	
+
+	@NotNull
 	private Pais pais;
+
+	@NotEmpty // Tambien sirve para listas
+	private List<Role> roles;
+
+	private Boolean habilitar;
+
 	
+	
+	//Getters&Setters//
+	public Boolean getHabilitar() {
+		return habilitar;
+	}
+	
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	
+	public void setHabilitar(Boolean activo) {
+		this.habilitar = activo;
+	}
+
 	public Pais getPais() {
 		return pais;
 	}
@@ -92,8 +119,6 @@ public class Usuario {
 	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
 	}
-
-	
 
 	public String getUsername() {
 		return username;
