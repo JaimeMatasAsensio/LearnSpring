@@ -17,6 +17,7 @@ En esta seccion se revisan:
 - Validacion de Listas dentro de clases
 - Implementacion de Services e inyeccion
 - Validacion de Checkboxes
-- ...
+- Uso de radio buttons
+- Carga de paramentros en un formulario
 
-Proximas Lecciones a practicar :point_rigth: 86
+Fin seccion 4 :godmode: :+1:
