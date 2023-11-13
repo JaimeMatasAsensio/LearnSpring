@@ -1,0 +1,9 @@
+## Seccion 6: Interceptores Http 
+
+En esta seccion se revisan:
+- Usos y funcionamiento de Interceptores
+- Creacion, Registro y configuracion de Interceptores
+- Aplicacion de un interceptor
+- Validaciones para la logica del interceptor
+
+Seccion 6 Siguiente leccion a practicar :point_rigth: 102
