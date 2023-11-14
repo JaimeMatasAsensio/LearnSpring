@@ -6,4 +6,4 @@ En esta seccion se revisan:
 - Aplicacion de un interceptor
 - Validaciones para la logica del interceptor
 
-Seccion 6 Siguiente leccion a practicar :point_rigth: 102
+Fin seccion 6 :godmode: :+1:
