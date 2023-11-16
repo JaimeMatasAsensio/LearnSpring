@@ -5,6 +5,6 @@ En esta seccion se revisan:
 - Lanzamiento de codigos de error 500
 - Lanzamiento de codigos de error 400
 - Manejo de excepciones e implementacion en la vista
-- ...
+- Creacion de excepciones personalizas y vistas
 
-Siguiente leccion a practicar :point_right: 111
+Fin seccion 7 :godmode: :+1:

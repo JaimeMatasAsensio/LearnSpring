@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import spring.boot.seccion7.error.app.errors.UsuarioNotFoundException;
+
 
 
 @ControllerAdvice //Notacion que maneja las excepciones, Mapea a una excepcion
@@ -31,4 +33,16 @@ public class ErrorHandlerController {
 		model.addAttribute("clown","Aprende a escribir, ¡Melon!");
 		return "error/generico";
 	}
+	
+	@ExceptionHandler(UsuarioNotFoundException.class)
+	public String usuarioNotFoundException(UsuarioNotFoundException ex, Model model) {
+		model.addAttribute("error","Error numero no valido");
+		model.addAttribute("message",ex.getMessage());
+		model.addAttribute("status",HttpStatus.I_AM_A_TEAPOT.value());
+		model.addAttribute("timestamp",new Date());		
+		model.addAttribute("clown","418: I'm a teapot");
+		return "error/generico";
+	}
+	
+	
 }
