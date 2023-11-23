@@ -7,6 +7,8 @@ En esta seccion se revisan:
 - Consola de BBDD H2
 - Creacion de formulario con estilos
 - Implementacion para crear elementos y guardar en BBDD
-- ...
+- Implementacion del patron de diseño Facade a traves de un service
+- Implementacion del Dao con la interface CrudRepository [Documentacion SpringJPA](https://spring.io/projects/spring-data-jpa#learn)
+- ... 
 
-Ultima leccion practicada :point_rigth: 128
+Ultima leccion practicada :point_rigth: 135
