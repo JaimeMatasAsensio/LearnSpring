@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title th:text="${title}">SpringBoot v3 MVC: </title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+    <h3 th:text="${mensaje}"></h3>
+    <ul>
+        <li th:text="${name}"></li>
+        <li th:text="${lastName}"></li>
+        <li th:text="${date}"></li>
+        <li th:text="${era}"></li>
+        <!--<li th:text="${}"></li>-->
+        <li th:text="${user.name}"></li>
+        <li th:text="${user.lastName}"></li>
+    </ul>
+
+</body>
+</html>
